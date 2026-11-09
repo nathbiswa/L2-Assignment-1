@@ -31,6 +31,36 @@ function formatCoordinate(value) {
     const locationName = value[2];
     return `Location: ${locationName} (${latitude},${longitude})`;
 }
-console.log(formatCoordinate([23.81, 90.41, "Dhaka"]));
-console.log(formatCoordinate([22.35, 91.78, "Chittagong"]));
+// console.log(formatCoordinate([23.81, 90.41, "Dhaka"]));
+// console.log(formatCoordinate([22.35, 91.78, "Chittagong"]));
+// We can use to both function
+// function concatenateArrays<T>(...arrays: T[][]): T[] {
+//   return arrays.flat();
+// }
+function concatenateArrays(...arrays) {
+    return [].concat(...arrays);
+}
+const courses = [
+    { title: "TypeScript Mastery", students: 120, isPublished: true },
+    { title: "Draft Course", students: 200, isPublished: false },
+    { title: "Basic HTML", students: 45, isPublished: true },
+    { title: "Next.js Pro", students: 85, isPublished: true },
+];
+function getPopularCourses(courses, minStudents) {
+    return courses.filter((course) => {
+        return course.isPublished === true && course.students >= minStudents;
+    });
+}
+// console.log(getPopularCourses(courses, 80));
+// Problem 6
+function pluckValues(items, key) {
+    return items.map((item) => item[key]);
+}
+const users = [
+    { id: 1, name: "Rakib", role: "Admin" },
+    { id: 2, name: "Sadia", role: "Editor" },
+    { id: 3, name: "Tariq", role: "Subscriber" },
+];
 export {};
+// console.log(pluckValues(users, "name"));
+// console.log(pluckValues(users, "id"));
